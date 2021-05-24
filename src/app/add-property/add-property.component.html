@@ -1,0 +1,52 @@
+<div style="padding: 5px; width: 100%; max-width: 900px;">
+  <a type="button" class="btn modal-close" style="float: right;" mat-dialog-close>
+    <span style="color: rgb(255, 148, 148); " aria-hidden="true">&times;</span>
+  </a>
+  <br><hr>
+  <br>
+  <div mat-dialog-content>
+    <form [formGroup]="propertyData">
+      <div class="row">
+
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" formControlName="name" id="name" placeholder="Enter Name">
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="description">Description</label>
+            <textarea class="form-control" id="description" formControlName="description" rows="3" placeholder="Enter Description"></textarea>
+          </div>
+        </div>
+
+
+        <div class="col-md-6">
+          <div class="form-group">
+            <div class="col-12"><label for="size">Size</label></div>
+            <div class="col-12">
+              <div class="input-group">
+                <input type="number" class="form-control" formControlName="size" id="size" placeholder="Enter size">
+                <div class="input-group-append">
+                  <span>
+                    <select class="form-select" formControlName="unit" style="height: 100%;">
+                      <option [value]="unit" *ngFor="let unit of units">{{unit}}</option>
+                    </select>
+                  </span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div mat-dialog-actions style="float: right;">
+
+    <span style="padding: 3px;">
+      <button class="btn btn-secondary" (click)="addProperty()" cdkFocusInitial>Submit</button>
+    </span>
+  </div>
+</div>
